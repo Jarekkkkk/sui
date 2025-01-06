@@ -72,7 +72,7 @@ members = [
     "consensus/config",
     "consensus/core",
     "crates/anemo-benchmark",
-    "crates/bin-version",
+    "crates/bin-version", "crates/jarek-indexer",
     "crates/mysten-common",
     "crates/mysten-metrics",
     "crates/mysten-network",

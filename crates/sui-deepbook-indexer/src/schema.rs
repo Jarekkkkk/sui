@@ -1,6 +1,17 @@
-// Copyright (c) Mysten Labs, Inc.
-// SPDX-License-Identifier: Apache-2.0
 // @generated automatically by Diesel CLI.
+
+diesel::table! {
+    assets (type_) {
+        #[sql_name = "type"]
+        type_ -> Text,
+        name -> Text,
+        symbol -> Text,
+        decimals -> Int2,
+        ucid -> Nullable<Int4>,
+        package_id -> Nullable<Text>,
+        package_address_url -> Nullable<Text>,
+    }
+}
 
 diesel::table! {
     balances (event_digest) {
@@ -12,6 +23,16 @@ diesel::table! {
         checkpoint_timestamp_ms -> Int8,
         package -> Text,
         balance_manager_id -> Text,
+        asset -> Text,
+        amount -> Int8,
+        deposit -> Bool,
+    }
+}
+
+diesel::table! {
+    balances_summary (type_) {
+        #[sql_name = "type"]
+        type_ -> Text,
         asset -> Text,
         amount -> Int8,
         deposit -> Bool,
@@ -225,20 +246,10 @@ diesel::table! {
     }
 }
 
-diesel::table! {
-    assets (asset_type) {
-        asset_type -> Text,
-        name -> Text,
-        symbol -> Text,
-        decimals -> Int2,
-        ucid -> Nullable<Int4>,
-        package_id -> Nullable<Text>,
-        package_address_url -> Nullable<Text>,
-    }
-}
-
 diesel::allow_tables_to_appear_in_same_query!(
+    assets,
     balances,
+    balances_summary,
     flashloans,
     order_fills,
     order_updates,
@@ -251,13 +262,4 @@ diesel::allow_tables_to_appear_in_same_query!(
     sui_error_transactions,
     trade_params_update,
     votes,
-    assets,
 );
-
-diesel::table! {
-    balances_summary (asset) {
-        asset -> Text,
-        amount -> Int8,
-        deposit -> Bool,
-    }
-}

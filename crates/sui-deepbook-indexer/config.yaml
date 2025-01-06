@@ -1,18 +1,20 @@
 # config.yaml format:
 
+service_port: 4000
+sui_rpc_url: "https://fullnode.mainnet.sui.io:443"
 # URL of the remote store
-# remote_store_url: <url>
+remote_store_url: "https://jarek-sui-indexer.s3.amazonaws.com"
 # Database connection URL
-# db_url: <url>
+db_url: "postgresql://jareklin@localhost:5432/jareklin"
 # Path to the checkpoints
-# checkpoints_path: <path>
+checkpoints_path: "https://checkpoints.mainnet.sui.io"
 # DeepBook package ID
-# deepbook_package_id:
+deepbook_package_id: "0x2c8d603bc51326b8c13cef9dd07031a408a48dddb541963357661df5d3204809"
 # DeepBook genesis checkpoint
-# deepbook_genesis_checkpoint:
+deepbook_genesis_checkpoint: 98473677
 # Number of concurrent operations
-# concurrency: 1
+concurrency: 1
 # Client metric URL
-# metric_url: <url>
+metric_url: 0
 # Client metric port
-# metric_port: <port>
+metric_port: 0

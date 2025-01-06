@@ -1,0 +1,15 @@
+[package]
+name = "jarek-indexer"
+edition = "2021"
+version.workspace = true
+
+[dependencies]
+diesel = { workspace = true, features = ["serde_json"] }
+diesel-async = { workspace = true, features = ["bb8", "postgres"] }
+anyhow.workspace = true
+telemetry-subscribers.workspace = true
+dotenvy = "0.15"
+tokio = { workspace = true, features = ["full"] }
+
+[lints]
+workspace = true
